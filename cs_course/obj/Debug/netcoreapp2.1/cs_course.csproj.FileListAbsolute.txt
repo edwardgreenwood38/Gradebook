@@ -1,0 +1,11 @@
+C:\Users\edwar\Documents\projects\cs_course\cs_course\bin\Debug\netcoreapp2.1\cs_course.deps.json
+C:\Users\edwar\Documents\projects\cs_course\cs_course\bin\Debug\netcoreapp2.1\cs_course.runtimeconfig.json
+C:\Users\edwar\Documents\projects\cs_course\cs_course\bin\Debug\netcoreapp2.1\cs_course.runtimeconfig.dev.json
+C:\Users\edwar\Documents\projects\cs_course\cs_course\bin\Debug\netcoreapp2.1\cs_course.dll
+C:\Users\edwar\Documents\projects\cs_course\cs_course\bin\Debug\netcoreapp2.1\cs_course.pdb
+C:\Users\edwar\Documents\projects\cs_course\cs_course\obj\Debug\netcoreapp2.1\cs_course.csprojAssemblyReference.cache
+C:\Users\edwar\Documents\projects\cs_course\cs_course\obj\Debug\netcoreapp2.1\cs_course.csproj.CoreCompileInputs.cache
+C:\Users\edwar\Documents\projects\cs_course\cs_course\obj\Debug\netcoreapp2.1\cs_course.AssemblyInfoInputs.cache
+C:\Users\edwar\Documents\projects\cs_course\cs_course\obj\Debug\netcoreapp2.1\cs_course.AssemblyInfo.cs
+C:\Users\edwar\Documents\projects\cs_course\cs_course\obj\Debug\netcoreapp2.1\cs_course.dll
+C:\Users\edwar\Documents\projects\cs_course\cs_course\obj\Debug\netcoreapp2.1\cs_course.pdb
