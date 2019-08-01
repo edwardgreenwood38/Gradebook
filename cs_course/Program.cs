@@ -7,10 +7,8 @@ namespace cs_course
     {
         static void Main(string[] args)
         { 
-            double[] numbers = new [] {12.7, 56.2, 32.1, 4.1};
-            
             double result;
-            List<double> grades = new List<double>() {12.7, 56.2, 32.1, 4.1};
+            List<double> grades = new List<double>() {12.75, 56.23, 32.1, 4.19};
             grades.Add(27.9);
 
             result = 0.0;
@@ -19,7 +17,7 @@ namespace cs_course
                 result += number;
             }
 
-            Console.WriteLine(result / grades.Count);
+            Console.WriteLine($"The average grade is {result / grades.Count:N1}");
             
             
             if (args.Length > 0)
