@@ -3,18 +3,20 @@ using Xunit;
 
 namespace gradebook.tests
 {
-    public class UnitTest1
+    public class BookTests
     {
         [Fact]
         public void Test1()
         {
             // arrange data adn values
-            int x = 5;
-            int y = 2;
-            int expect = 7;
+            var book = new Book("");
+            book.AddGrade(89.1);
+            book.AddGrade(90.5);
+            book.AddGrade(77.1);
 
             // act
-            int actual = x + y;
+            book.ShowStats();
+            
 
             // assert
             Assert.Equal(expect, actual);
