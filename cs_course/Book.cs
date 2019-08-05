@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace cs_course
 {
-    class Book
+    public class Book
     {
         public Book(string name) //contructor
         {
@@ -16,7 +16,7 @@ namespace cs_course
             grades.Add(grade);
         }
 
-        public void ShowStats()
+        public void ShowStats() // method
         {
             double result = 0.0;
             double highGrade = double.MinValue;
@@ -30,6 +30,7 @@ namespace cs_course
             }
 
             result /= grades.Count;
+            Console.WriteLine($"{name}");
             Console.WriteLine($"The average grade is {result:N1}");
             Console.WriteLine($"The highest grade is {highGrade}");
             Console.WriteLine($"The lowest grade is {lowGrade}");
