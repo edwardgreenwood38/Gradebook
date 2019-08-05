@@ -13,7 +13,12 @@ namespace cs_course
             book.AddGrade(90.5);
             book.AddGrade(77.5);
 
-            book.ShowStats();
+            var stats = book.GetStats();
+
+            //Console.WriteLine($"{stats.name}");
+            Console.WriteLine($"The average grade is {stats.Average:N1}");
+            Console.WriteLine($"The highest grade is {stats.High}");
+            Console.WriteLine($"The lowest grade is {stats.Low}");
 
             
 

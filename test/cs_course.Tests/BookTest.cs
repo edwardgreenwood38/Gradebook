@@ -1,7 +1,7 @@
 using System;
 using Xunit;
 
-namespace gradebook.tests
+namespace cs_course.tests
 {
     public class BookTests
     {
@@ -12,14 +12,16 @@ namespace gradebook.tests
             var book = new Book("");
             book.AddGrade(89.1);
             book.AddGrade(90.5);
-            book.AddGrade(77.1);
+            book.AddGrade(77.3);
 
             // act
-            book.ShowStats();
+            var result = book.GetStats();
             
 
             // assert
-            Assert.Equal(expect, actual);
+            Assert.Equal(85.6, result.Average, 1);
+            Assert.Equal(90.5, result.High, 1);
+            Assert.Equal(77.3, result.Low, 1);
         }
     }
 }
