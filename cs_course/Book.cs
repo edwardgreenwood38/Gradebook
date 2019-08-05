@@ -8,7 +8,7 @@ namespace cs_course
         public Book(string name) //contructor
         {
             grades = new List<double>();
-            this.name = name;
+            Name = name;
         }
 
         public void AddGrade(double grade) //method
@@ -36,6 +36,6 @@ namespace cs_course
         }  
 
         private List<double> grades; // property
-        public string name;        
+        public string Name;        
     }
 }

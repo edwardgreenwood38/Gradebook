@@ -6,7 +6,7 @@ namespace cs_course.tests
     public class BookTests
     {
         [Fact]
-        public void Test1()
+        public void BookCalculatesAnAverageGrade()
         {
             // arrange data adn values
             var book = new Book("");
