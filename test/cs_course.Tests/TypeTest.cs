@@ -3,8 +3,42 @@ using Xunit;
 
 namespace cs_course.tests
 {
+    public delegate string WriteLogDelegate(string logMessage);
+    
     public class TypeTests
     {
+        int count = 0;
+        
+        [Fact]
+        public void WriteLogDelegateCanPointToMethod()
+        {
+            WriteLogDelegate log = ReturnMessage;
+
+            // allow any varible that returns a string or takes a string method
+            //log = new WriteLogDelegate(ReturnMessage);
+            // log = ReturnMessage;
+
+            log += ReturnMessage;
+            log += IncrementCount;
+
+            var result = log("Hello"); //invoke as a method
+            //Assert.Equal("Hello", result);
+            Assert.Equal(3, count);
+
+        }
+
+        string IncrementCount(string message)
+        {
+            count++;
+            return message.ToLower();
+        }
+
+        string ReturnMessage(string message)
+        {
+            count++;
+            return message;
+        }
+        
         [Fact]
         public void ValueTypesAlsoPassByValue()
         {

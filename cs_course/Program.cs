@@ -10,6 +10,11 @@ namespace cs_course
 
             Book book = new Book("Ed's grade book");
 
+            book.GradeAdded += OnGradeAdded; // method for event
+            book.GradeAdded += OnGradeAdded;
+            book.GradeAdded -= OnGradeAdded;
+            book.GradeAdded += OnGradeAdded;
+
             // grade input loop
             var done = false;
             while (!done)
@@ -25,7 +30,7 @@ namespace cs_course
                 try
                 {
                     double grade = double.Parse(input);
-                    book.AddGrade(grade); 
+                    book.AddGrade(grade);
                 }
                 catch(ArgumentException ex)
                 {
@@ -46,14 +51,16 @@ namespace cs_course
 
             var stats = book.GetStats();
 
-            //Console.WriteLine($"{stats.name}");
+            Console.WriteLine($"For the book named {book.Name}");
             Console.WriteLine($"The average grade is {stats.Average:N1}");
             Console.WriteLine($"The highest grade is {stats.High}");
             Console.WriteLine($"The lowest grade is {stats.Low}");
             Console.WriteLine($"The letter grade is {stats.Letter}");
-            
+        }
 
-            
+        static void OnGradeAdded(object sender, EventArgs e)
+        {
+            Console.WriteLine("A grade was added");
         }
     }
 }
