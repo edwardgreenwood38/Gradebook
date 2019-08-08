@@ -62,7 +62,7 @@ namespace cs_course.tests
         public void CSharpCanPassByRef()
         {
             // arrange data adn values
-            Book book1 = GetBook("Book 1");
+            InMemoryBook book1 = GetBook("Book 1");
             GetBookSetName(ref book1, "New Name");
 
             // act
@@ -71,16 +71,16 @@ namespace cs_course.tests
             Assert.Equal("New Name", book1.Name);
         }
 
-        private void GetBookSetName(ref Book book, string name)
+        private void GetBookSetName(ref InMemoryBook book, string name)
         {
-            book = new Book(name);
+            book = new InMemoryBook(name);
         }
         
         [Fact]
         public void CSharpPassByValue()
         {
             // arrange data adn values
-            Book book1 = GetBook("Book 1");
+            InMemoryBook book1 = GetBook("Book 1");
             GetBookSetName(book1, "New Name");
 
             // act
@@ -89,9 +89,9 @@ namespace cs_course.tests
             Assert.Equal("Book 1", book1.Name);
         }
 
-        private void GetBookSetName(Book book, string name)
+        private void GetBookSetName(InMemoryBook book, string name)
         {
-            book = new Book(name);
+            book = new InMemoryBook(name);
         }
         
         [Fact]
@@ -107,7 +107,7 @@ namespace cs_course.tests
             Assert.Equal("New Name", book1.Name);
         }
 
-        private void SetName(Book book, string name)
+        private void SetName(InMemoryBook book, string name)
         {
             book.Name = name;
         }
@@ -148,8 +148,8 @@ namespace cs_course.tests
         public void TwoVarsCanReferenceSameObject()
         {
             // arrange data adn values
-            Book book1 = GetBook("Book 1");
-            Book book2 = book1;
+            InMemoryBook book1 = GetBook("Book 1");
+            InMemoryBook book2 = book1;
 
             // act
 
@@ -161,9 +161,9 @@ namespace cs_course.tests
             Assert.True(Object.ReferenceEquals(book1, book2));
         }
 
-        Book GetBook(string name)
+        InMemoryBook GetBook(string name)
         {
-            return new Book(name);
+            return new InMemoryBook(name);
         }
     }
 }

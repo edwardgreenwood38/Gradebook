@@ -5,9 +5,60 @@ namespace cs_course
 {
     // normally in a seperate file/class
     public delegate void GradeAddDelegate(object sender, EventArgs args);
-    
-    public class Book
+
+    // best practice to put in own file
+    public class NamedObject
     {
+        public NamedObject(string name)
+        {
+            Name = name;
+        }
+
+        // property member (better flexability)
+        public string Name 
+        {
+            get;
+            set;
+        }
+    }
+
+    public interface IBook
+    {
+        void AddGrade(double grade);
+        Stats GetStats();
+        string Name { get; }
+        event GradeAddDelegate GradeAdded;
+    }
+    
+    public abstract class Book : NamedObject, IBook
+    {
+        public Book(string name) : base(name)
+        {
+        }
+
+        public virtual event GradeAddDelegate GradeAdded;
+
+        // abstract method
+        public abstract void AddGrade(double grade);
+
+        public virtual Stats GetStats()
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class InMemoryBook : Book
+    {
+         // contructor
+         public InMemoryBook(string name) : base(name) 
+        {
+            //const int x = 1;
+            
+            //category = ""; // can only set a value in constructors
+            grades = new List<double>();
+            Name = name;
+        }
+        
         public void AddGrade(char letter)
         {
             switch(letter)
@@ -30,16 +81,7 @@ namespace cs_course
             }
         }
 
-        public Book(string name) //contructor
-        {
-            //const int x = 1;
-            
-            //category = ""; // can only set a value in constructors
-            grades = new List<double>();
-            Name = name;
-        }
-
-        public void AddGrade(double grade) //method
+        public override void AddGrade(double grade) //method
         {
             if (grade <= 100 && grade >= 0)
             { 
@@ -56,9 +98,9 @@ namespace cs_course
         }
 
         // a field on book class. a delegate that annousese that a grade has been added
-        public event GradeAddDelegate GradeAdded;
+        public override event GradeAddDelegate GradeAdded;
 
-        public Stats GetStats() // method
+        public override Stats GetStats() // method
         {
             var result = new Stats();
             result.Average = 0.0;
@@ -102,13 +144,7 @@ namespace cs_course
         }  
 
         private List<double> grades; // property
-        
-        // property member (better flexability)
-        public string Name
-        {
-            get; 
-            set;
-        }
+
 
         // readonly string category = "Science"; // good for values that you do not want to have change
 
