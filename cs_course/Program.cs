@@ -8,7 +8,7 @@ namespace cs_course
         static void Main(string[] args)
         {
 
-            InMemoryBook book = new InMemoryBook("Ed's grade book");
+            IBook book = new DiskBook("Ed's grade book");
 
             book.GradeAdded += OnGradeAdded; // method for event
 
