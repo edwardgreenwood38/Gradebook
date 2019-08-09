@@ -3,9 +3,12 @@ using System.Collections.Generic;
 
 namespace cs_course
 {
+    // normally in a seperate file/class
+    public delegate void GradeAddDelegate(object sender, EventArgs args);
+    
     public class Book
     {
-        public void AddLetterGrade(char letter)
+        public void AddGrade(char letter)
         {
             switch(letter)
             {
@@ -29,6 +32,9 @@ namespace cs_course
 
         public Book(string name) //contructor
         {
+            //const int x = 1;
+            
+            //category = ""; // can only set a value in constructors
             grades = new List<double>();
             Name = name;
         }
@@ -38,12 +44,19 @@ namespace cs_course
             if (grade <= 100 && grade >= 0)
             { 
                 grades.Add(grade);
+                if(GradeAdded != null)
+                {
+                    GradeAdded(this, new EventArgs());
+                }
             }
             else
             {
                 throw new ArgumentException($"Invalid {nameof(grade)}");
             }
         }
+
+        // a field on book class. a delegate that annousese that a grade has been added
+        public event GradeAddDelegate GradeAdded;
 
         public Stats GetStats() // method
         {
@@ -89,6 +102,17 @@ namespace cs_course
         }  
 
         private List<double> grades; // property
-        public string Name;        
+        
+        // property member (better flexability)
+        public string Name
+        {
+            get; 
+            set;
+        }
+
+        // readonly string category = "Science"; // good for values that you do not want to have change
+
+        public const string CATEGORY = "Science"; // treated as static
+        // only can use from class and not objects
     }
 }
